@@ -1,0 +1,54 @@
+[options]
+; =========================================================
+; odoo.conf.example — TEMPLATE SEM SEGREDOS
+; Copie para odoo.conf e preencha. O odoo.conf NÃO vai pro Git.
+; =========================================================
+
+; --- Banco de dados ---
+db_host = localhost
+db_port = 5432
+db_user = postgres
+db_password = COLOQUE_A_SENHA_DO_POSTGRES_AQUI
+
+; --- Segurança / admin master ---
+; Senha para criar/dropar bancos via web. GERE uma forte (32+ chars).
+admin_passwd = GERE_UMA_SENHA_FORTE_DE_32_CHARS
+
+; --- Multi-tenant (SaaS) ---
+; DEV: list_db=True facilita trocar entre bancos. PROD: SEMPRE False.
+list_db = True
+; Filtra qual banco o Odoo mostra. DEV deixa amplo, PROD usa regex por subdomínio:
+; Exemplo prod com subdomínio: dbfilter = ^%d$
+; (onde %d vira o subdomínio. Ex: cliente1.festa.com.br → busca banco "cliente1")
+dbfilter = .*
+
+; --- Servidor ---
+http_port = 8069
+http_interface = 127.0.0.1
+; Em produção, rodar atrás de nginx como proxy reverso e setar:
+; proxy_mode = True
+
+; --- Addons (módulos) ---
+; odoo/addons = módulos oficiais do Odoo
+; custom_addons = módulos customizados DESTE projeto
+addons_path = odoo/addons,custom_addons
+
+; --- Workers (produção) ---
+; DEV: 0 (modo threaded, mais fácil de debugar)
+; PROD: 2 * numero_de_CPUs + 1 (ex: 4 CPUs = 9 workers)
+workers = 0
+
+; --- Logs ---
+log_level = info
+; log_handler = :INFO,werkzeug:WARNING,odoo.addons.base.models.ir_cron:WARNING
+logfile = logs/odoo.log
+
+; --- Limite de requisições (segurança) ---
+limit_memory_hard = 2684354560
+limit_memory_soft = 2147483648
+limit_request = 8192
+limit_time_cpu = 60
+limit_time_real = 120
+
+; --- Sessão ---
+; Em produção com HTTPS, adicionar: proxy_mode = True

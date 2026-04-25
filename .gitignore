@@ -19,6 +19,16 @@ npm-debug.log
 .env.local
 *.key
 *.pem
+odoo.conf
+*.odoorc
+
+# Python venv
+.venv/
+venv/
+
+# Odoo data/filestore
+filestore/
+sessions/
 
 # Logs
 logs/
