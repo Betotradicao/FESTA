@@ -1,0 +1,35 @@
+# Odoo (clonado separadamente do repo oficial)
+odoo/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log
+
+# Ambiente / Segredos
+.env
+.env.local
+*.key
+*.pem
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
